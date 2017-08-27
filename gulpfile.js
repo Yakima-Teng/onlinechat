@@ -31,11 +31,12 @@ gulp.task('browser-sync', function () {
       baseDir: './',
       directory: true,
       routes: {
-        '/wechat/static/home/dist': 'dist'
+        '/wechat/static/onlinechat/dist': 'dist',
+        '/wechat/static/onlinechat/party-demo': 'party-demo'
       }
     },
     port: frontEndPort,
-    startPath: '/wechat/static/home/dist/index.html',
+    startPath: '/wechat/static/onlinechat/party-demo/index.html',
     middleware: [
       proxy('/test', { target: domain.proxy, changeOrigin: true })
     ]

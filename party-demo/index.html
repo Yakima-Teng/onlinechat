@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="pragma" content="no-cache">
+    <title>party demo</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .wrap {
+        width: 70%;
+        margin: 0 auto;
+    }
+    
+    video {
+        border: 1px solid red;
+        width: 240px;
+        height: 180px;
+        display: block;
+    }
+    
+    textarea {
+        width: 240px;
+        height: 100px;
+    }
+    
+    .flex-container {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-around;
+    }
+    
+    .flex-item {
+        padding: 5px;
+        width: 240px;
+        margin-top: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 3em;
+        text-align: center;
+        position: relative;
+    }
+    
+    .icon-group {
+        position: absolute;
+        width: 100%;
+        top: 165px;
+        font-size: 14px;
+        background-color: rgba(0, 0, 0, .75);
+    }
+    
+    .btn-group {
+        display: none;
+    }
+    
+    .icon-group span {
+        padding: 0 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <h1 id="title">Start a room</h1>
+        <p id="subTitle"></p>
+        <div class="form-inline">
+            <div class="form-group">
+                <input id="sessionInput" class="form-control" style="width: 300px;" />
+                <button id="start" type="button" class="btn btn-info" onclick="start()">加入</button>
+            </div>
+        </div>
+        <br>
+        <ul id="remotes" class="flex-container">
+            <li class="flex-item">
+                <video id="videoOutput" autoplay></video>
+                <div class="btn-group">
+                    <span class="btn btn-info" onclick="toggleCamera()" data-js="btnVideo"><i class="glyphicon glyphicon-facetime-video" aria-hidden="true"></i></span>
+                    <span class="btn btn-info" onclick="toggleAudio()" data-js="btnAudio"><i class="glyphicon glyphicon-volume-up" aria-hidden="true"></i></span>
+                    <span class="btn btn-info" onclick="hangup()">挂断</span>
+                </div>
+                <textarea id="info" class="form-control" rows="3"></textarea>
+            </li>
+        </ul>
+    </div>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/adapter.js"></script>
+    <script src="lib/kurento-utils.min.js"></script>
+    <script src="lib/socket.io.js"></script>
+    <script type="text/javascript">
+    (function() {
+        var s = document.createElement('script');
+        s.src = 'js/main.js?' + Math.random();
+        document.getElementsByTagName('body')[0].appendChild(s);
+    })()
+    </script>
+</body>
+
+</html>
